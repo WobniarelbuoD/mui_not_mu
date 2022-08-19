@@ -1,0 +1,29 @@
+import { Typography } from "@mui/material";
+import { Container } from "@mui/system";
+
+const About = () => {
+  return (
+    <main>
+      <div>
+        <Container>
+          <Typography variant="h1" color="white" align="center" gutterBottom>
+            About
+          </Typography>
+
+          <Typography variant="h4" color="white" align="center">
+            The time has come to write some random text that has no meaning.
+            This text is only for show and you shouldn't read into it or read it
+            in general. About sounds like A Boot which would translate into a
+            shoe. Personaly to me it sounds weird.<br/><br/>
+            This is an asignment or an exercise that we have to complete and for that reason i need to spam some text.
+            I do not like Lorem, but i do like typing alot of random text for no reason what so ever.<br/>
+            What if i told you the cake was a lie?
+
+          </Typography>
+          
+        </Container>
+      </div>
+    </main>
+  );
+};
+export default About;
