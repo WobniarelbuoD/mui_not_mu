@@ -13,7 +13,8 @@ function App() {
   }
   return (
     
-    <div className="App" style={{background:"linear-gradient(90deg, rgba(70,73,254,1) 0%, rgba(248,134,255,1) 100%)", backgroundSize:"100vw 100%"}}>
+    <div className="App">
+      <div style={{background:"linear-gradient(90deg, rgba(70,73,254,1) 0%, rgba(248,134,255,1) 100%)",width:"100vw",height:"100vh",position:"fixed",zIndex:-5}}></div>
       <BrowserRouter>
         <TopBar />
         <Routes>

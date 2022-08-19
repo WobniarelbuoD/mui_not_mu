@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import {useState} from 'react'
 
 const Calculator = () =>{
@@ -46,7 +46,7 @@ const Button = ({thing}) =>{
     }
 
     return(
-        <div>
+        <Container sx={{display:"flex", flexDirection:"column",alignItems:"center"}}>
             <Typography variant="h1" color="white">Calculator</Typography>
         <div id={"centras"}>
             <div id={"vaizdas"}>
@@ -94,7 +94,7 @@ const Button = ({thing}) =>{
             <script src="bower_components/dist/number-to-text.js"></script>
 
         </div>
-        </div>
+        </Container>
     )
 }
 export default Calculator
