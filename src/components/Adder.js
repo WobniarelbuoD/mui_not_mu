@@ -1,10 +1,14 @@
 import {Button,Divider,List,ListItem,ListItemButton,ListItemText,TextField,Typography,} from "@mui/material";
 import { Container } from "@mui/system";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Adder = () => {
   const [input, inputUpdate] = useState();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('content')));
+
+  useEffect(()=>{
+    localStorage.setItem('content', JSON.stringify(items))
+  }, [items])
 
   const arrayUpdate = () => {
     setItems([...items, input]);
