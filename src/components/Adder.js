@@ -20,7 +20,7 @@ const Adder = () => {
   }
 
   return (
-    <Container sx={{display:"flex", alignItems:"center", flexDirection:"column", mt:5}}>
+    <Container sx={{display:"flex", alignItems:"center", flexDirection:"column", mt:5, minHeight:"70.9vh"}}>
       <Typography color="white  " variant="h2">Task Master</Typography>
 
       <Box sx={{display:"flex", flexDirection: 'column', maxWidth:"300px", mt:10}}>

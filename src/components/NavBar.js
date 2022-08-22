@@ -12,7 +12,7 @@ const TopBar = () =>{
           <IconButton to="/home" component={Link}><AccessibleForwardIcon size="large" edge="start" color="inherit" aria-label="logo" /></IconButton>
           <Typography variant="h5" component="div"></Typography>
           <Stack id="buttonLinks" direction="row" spacing={2}>
-            <Button color="inherit" to="/home" component={Link}>Home</Button>
+            <Button color="inherit" to="/" component={Link}>Home</Button>
             <Button color="inherit" to="/calculator" component={Link}>Calculator</Button>
             <Button color="inherit" to="/about" component={Link}>About</Button>
             <Button color="inherit" to="/Adder" component={Link}>Adder</Button>

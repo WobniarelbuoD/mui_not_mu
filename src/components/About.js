@@ -5,7 +5,7 @@ const About = () => {
   return (
     <main>
       <div>
-        <Container>
+        <Container sx={{minHeight:"70.9vh"}}>
           <Typography variant="h1" color="white" align="center" gutterBottom>
             About
           </Typography>
