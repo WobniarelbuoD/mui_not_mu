@@ -1,18 +1,29 @@
-import {Box, Button,Divider,List,ListItem,ListItemButton,ListItemText,TextField,Typography,} from "@mui/material";
+import {Box, Button,Divider,FormControl,FormHelperText,Input,InputLabel,List,ListItem,ListItemButton,ListItemText,Paper,TextField,Typography,} from "@mui/material";
 import { Container } from "@mui/system";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Adder = () => {
-  const [input, inputUpdate] = useState();
+  const [input, inputUpdate] = useState('');
+  const [err, errUpdate] = useState(false);
+  const [mess,messUpdate] = useState('')
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('content')) === null ? [] : JSON.parse(localStorage.getItem('content')));
 
   useEffect(()=>{ localStorage.setItem('content', JSON.stringify(items)) }, [items])
 
+  const arrayUpdate = (event) => {
+    event.preventDefault();
 
-
-  const arrayUpdate = () => {
+    if(input != null && input.length != 0){
     setItems([...items, input]);
-  };
+    errUpdate(false)
+    messUpdate('')
+    inputUpdate("")
+  }
+  else{
+    errUpdate(true)
+    messUpdate("Input field empty!")
+  }
+  }
 
   const remove = (index) =>{
     items.splice(index,1)
@@ -23,11 +34,13 @@ const Adder = () => {
     <Container sx={{display:"flex", alignItems:"center", flexDirection:"column", mt:5, minHeight:"70.9vh"}}>
       <Typography color="white  " variant="h2">Task Master</Typography>
 
-      <Box sx={{display:"flex", flexDirection: 'column', maxWidth:"300px", mt:10}}>
-        <TextField onChange={(e) => inputUpdate(e.target.value)} label="Text"
-        ></TextField>
-        <Button onClick={() => arrayUpdate()} variant="contained" sx={{ mt: 2 }}>Add</Button>
-      </Box>
+      <form  onSubmit={(event) => arrayUpdate(event)}> 
+      <FormControl sx={{mt:10}}>
+        <InputLabel htmlFor="my-input">Add A Task</InputLabel>
+        <Input onChange={(e) => inputUpdate(e.target.value)} value={input} error={err} label="Text" id="my-input" aria-describedby="my-helper-text" />
+        <FormHelperText disabled={err} error id="my-helper-text">{mess}</FormHelperText>
+        <Button type="submit" variant="contained" sx={{ mt: 2 }}>Add Task</Button>
+      </FormControl>
 
       <List sx={{ mt: 5 , display:"flex", alignItems:"center", flexDirection:"Column",color:"white"}}>
         {items.map((item,index) => {
@@ -36,6 +49,8 @@ const Adder = () => {
           );
         })}
       </List>
+      </form>
+
     </Container>
   );
 };
