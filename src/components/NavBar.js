@@ -9,7 +9,7 @@ const TopBar = () =>{
       <CssBaseline /> 
       <AppBar position="relative">
         <Toolbar>
-          <IconButton to="/home" component={Link}><AccessibleForwardIcon size="large" edge="start" color="inherit" aria-label="logo" /></IconButton>
+          <IconButton to="/" component={Link}><AccessibleForwardIcon size="large" edge="start" color="inherit" aria-label="logo" /></IconButton>
           <Typography variant="h5" component="div"></Typography>
           <Stack id="buttonLinks" direction="row" spacing={2}>
             <Button color="inherit" to="/" component={Link}>Home</Button>

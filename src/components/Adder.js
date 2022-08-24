@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 const Adder = () => {
   const [input, inputUpdate] = useState();
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('content')));
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('content')) === null ? [] : JSON.parse(localStorage.getItem('content')));
 
-  useEffect(()=>{
-    localStorage.setItem('content', JSON.stringify(items))
-  }, [items])
+  useEffect(()=>{ localStorage.setItem('content', JSON.stringify(items)) }, [items])
+
+
 
   const arrayUpdate = () => {
     setItems([...items, input]);
@@ -24,9 +24,7 @@ const Adder = () => {
       <Typography color="white  " variant="h2">Task Master</Typography>
 
       <Box sx={{display:"flex", flexDirection: 'column', maxWidth:"300px", mt:10}}>
-        <TextField
-          onChange={(e) => inputUpdate(e.target.value)}
-          label="Text"
+        <TextField onChange={(e) => inputUpdate(e.target.value)} label="Text"
         ></TextField>
         <Button onClick={() => arrayUpdate()} variant="contained" sx={{ mt: 2 }}>Add</Button>
       </Box>
