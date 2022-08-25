@@ -6,7 +6,9 @@ const Adder = () => {
   const [input, inputUpdate] = useState('');
   const [err, errUpdate] = useState(false);
   const [mess,messUpdate] = useState('')
+  const [mess2,messUpdate2] = useState('Add A Task')
   const [lever,leverUpdate] = useState(false)
+  const [ind,indUpdate] = useState(0)
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('content')) === null ? [] : JSON.parse(localStorage.getItem('content')));
 
   useEffect(()=>{ localStorage.setItem('content', JSON.stringify(items)) }, [items])
@@ -14,7 +16,7 @@ const Adder = () => {
   const arrayUpdate = (event) => {
     event.preventDefault();
     if(!lever){
-    if(input != null && input.length != 0){
+    if(input !== null && input.length !== 0){
     setItems([...items, input]);
     errUpdate(false)
     messUpdate('')
@@ -24,6 +26,15 @@ const Adder = () => {
     errUpdate(true)
     messUpdate("Input field empty!")
   }
+  }
+  else{
+    items.splice(ind,1,input)
+    setItems([...items])
+    messUpdate('')
+    messUpdate('Add A Task')
+    errUpdate(false)
+    inputUpdate("")
+    leverUpdate(false)
   }
   }
 
@@ -35,6 +46,10 @@ const Adder = () => {
   const edit = (index) =>{
     inputUpdate(items[index])
     leverUpdate(true)
+    indUpdate(index)
+    messUpdate("Edit your content!")
+    messUpdate2("Edit your Task!")
+    errUpdate(true)
   }
 
   return (
@@ -43,10 +58,10 @@ const Adder = () => {
 
       <form  onSubmit={(event) => arrayUpdate(event)}> 
       <FormControl sx={{mt:10,minWidth:"300px"}}>
-        <InputLabel htmlFor="my-input">Add A Task</InputLabel>
+        <InputLabel htmlFor="my-input">{mess2}</InputLabel>
         <Input onChange={(e) => inputUpdate(e.target.value)} value={input} error={err} label="Text" id="my-input" aria-describedby="my-helper-text" />
         <FormHelperText disabled={err} error id="my-helper-text">{mess}</FormHelperText>
-        <Button type="submit" variant="contained" sx={{ mt: 2 }}>Add Task</Button>
+        <Button type="submit" variant="contained" sx={{ mt: 2 }}>{mess2}</Button>
       </FormControl>
 
       <List sx={{ mt: 5 , display:"flex", alignItems:"center", flexDirection:"Column",color:"white"}}>
