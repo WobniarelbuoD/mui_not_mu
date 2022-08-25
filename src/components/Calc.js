@@ -46,8 +46,8 @@ const Button = ({thing}) =>{
     }
 
     return(
-        <Container sx={{display:"flex", flexDirection:"column",alignItems:"center",  minHeight:"70.9vh"}}>
-            <Typography variant="h1" color="white">Calculator</Typography>
+        <Container sx={{display:"flex", flexDirection:"column",alignItems:"center",  minHeight:"70.9vh",pt:5}}>
+            <Typography variant="h2" color="white">Calculator</Typography>
         <div id={"centras"}>
             <div id={"vaizdas"}>
                 {result ? <span>({result})</span> : ''}

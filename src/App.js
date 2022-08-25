@@ -1,4 +1,4 @@
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import {HashRouter, Route, Routes } from "react-router-dom";
 import Calculator from "./components/Calc";
 import Home from "./components/Home";
 import TopBar from "./components/NavBar";
@@ -11,7 +11,7 @@ import Error from "./components/Error"
 function App() {
   return (
     <div className="App">
-      <div style={{background:"linear-gradient(90deg, rgba(70,73,254,1) 0%, rgba(248,134,255,1) 100%)",width: "100vw",height: "100vh",position: "fixed",zIndex: -5,}}></div>
+      <div style={{background:"linear-gradient(90deg, rgba(70,73,254,1) 0%, rgba(248,134,255,1) 100%)",minWidth: "100vw",minHeight: "100vh",position: "fixed",zIndex: -5,}}></div>
       <HashRouter>
         <TopBar />
         <Routes>

@@ -5,12 +5,12 @@ const About = () => {
   return (
     <main>
       <div>
-        <Container sx={{minHeight:"70.9vh"}}>
-          <Typography variant="h1" color="white" align="center" gutterBottom>
+        <Container sx={{minHeight:"70.9vh", pt:5}}>
+          <Typography variant="h2" color="white" align="center" gutterBottom>
             About
           </Typography>
 
-          <Typography variant="h4" color="white" align="center">
+          <Typography variant="h5" color="white" align="center">
             The time has come to write some random text that has no meaning.
             This text is only for show and you shouldn't read into it or read it
             in general. About sounds like A Boot which would translate into a
