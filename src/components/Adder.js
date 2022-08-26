@@ -31,7 +31,7 @@ const Adder = () => {
     items.splice(ind,1,input)
     setItems([...items])
     messUpdate('')
-    messUpdate('Add A Task')
+    messUpdate2('Add A Task')
     errUpdate(false)
     inputUpdate("")
     leverUpdate(false)
